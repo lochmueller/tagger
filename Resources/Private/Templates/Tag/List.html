@@ -1,0 +1,9 @@
+{namespace hdnet=HDNET\Tagger\ViewHelpers}
+<div class="list">
+	<ul>
+		<f:for each="{tags}" as="tag">
+			<li><strong>{tag.title}</strong> - {tag-slug} - {tag.valuation}</li>
+		</f:for>
+	</ul>
+</div>
+<hdnet:tagLink></hdnet:tagLink>

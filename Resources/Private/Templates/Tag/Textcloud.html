@@ -1,0 +1,21 @@
+<style type="text/css">
+	.textcloud span { 
+		line-height:1em; 
+		padding: 2px;
+	}
+</style>
+
+<div class="textcloud">
+	<f:for each="{tags}" as="tag">
+		<span class="text-size-{tag.valuationSize}" style="font-size:{tag.valuationSize}pt;">
+			<f:if condition="{tag.link}">
+				<f:then>
+					<f:link.page pageUid="{tag.link}">{tag.title}</f:link.page>
+				</f:then>
+				<f:else>
+					{tag.title}
+				</f:else>
+			</f:if>
+		</span>
+	</f:for>
+</div>

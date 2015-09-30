@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+	<sheets>
+		
+		
+		<sVIEW>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:flexform.configuration</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					
+					<switchableControllerActions>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:flexform.view</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="1">
+										<numIndex index="0">Textcloud</numIndex>
+										<numIndex index="1">Tag->textcloud</numIndex>
+									</numIndex>
+									<numIndex index="0">
+										<numIndex index="0">List</numIndex>
+										<numIndex index="1">Tag->list</numIndex>
+									</numIndex>
+									<numIndex index="2">
+										<numIndex index="0">Flashcloud</numIndex>
+										<numIndex index="1">Tag->flashcloud</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</switchableControllerActions>	
+					
+					<!-- minFontsize (Classes from) maxFontsize (Classes to) Separator -->
+					<!-- - Link konfiguration  PID - Parameter -->				
+				</el>
+			</ROOT>
+		</sVIEW>
+		
+		
+		<sPRE>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:flexform.preperation</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+									
+					<settings.preperation.sorting>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:sorting</label>
+							<config>
+								<type>select</type>
+								<default>random</default>
+								<items>
+									<numIndex index="1">
+										<numIndex index="0">Weight</numIndex>
+										<numIndex index="1">weight</numIndex>
+									</numIndex>
+									<numIndex index="0">
+										<numIndex index="0">Random</numIndex>
+										<numIndex index="1">random</numIndex>
+									</numIndex>
+									<numIndex index="2">
+										<numIndex index="0">Alphabethicaly</numIndex>
+										<numIndex index="1">alphabethicaly</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</settings.preperation.sorting>
+									
+					<settings.preperation.ordering>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:ordering</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="1">
+										<numIndex index="0">ASC</numIndex>
+										<numIndex index="1">asc</numIndex>
+									</numIndex>
+									<numIndex index="0">
+										<numIndex index="0">DESC</numIndex>
+										<numIndex index="1">desc</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</settings.preperation.ordering>
+									
+					<settings.preperation.weightscale>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:weightscale</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="1">
+										<numIndex index="0">untouched</numIndex>
+										<numIndex index="1">untouched</numIndex>
+									</numIndex>
+									<numIndex index="0">
+										<numIndex index="0">Linear</numIndex>
+										<numIndex index="1">linear</numIndex>
+									</numIndex>
+									<numIndex index="0">
+										<numIndex index="0">....</numIndex>
+										<numIndex index="1">....</numIndex>
+									</numIndex>
+									<!-- http://typo3.org/typo3temp/tx_terdoc/documentscache/v/g/vge_tagcloud-1.6.0/docbook/pictures/10000000000001AD000002A43684416C.png -->
+								</items>
+							</config>
+						</TCEforms>
+					</settings.preperation.weightscale>
+									
+					<settings.preperation.linkconfiguration>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:linkconfiguration</label>
+							<config>
+								<type>text</type>
+								<default><![CDATA[parameter.data = TSFE:id
+additionalParams.dataWrap = &tx_tagger[tag]={field:uid}]]>
+								</default>
+							</config>
+						</TCEforms>
+					</settings.preperation.linkconfiguration>
+					
+				</el>
+			</ROOT>
+		</sPRE>
+		
+		
+		<sDATA>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:flexform.dataselection</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+									
+					<settings.selection.sorting>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:sorting</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="1">
+										<numIndex index="0">Weight</numIndex>
+										<numIndex index="1">weight</numIndex>
+									</numIndex>
+									<numIndex index="0">
+										<numIndex index="0">Random</numIndex>
+										<numIndex index="1">random</numIndex>
+									</numIndex>
+									<numIndex index="2">
+										<numIndex index="0">Alphabethicaly</numIndex>
+										<numIndex index="1">alphabethicaly</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</settings.selection.sorting>
+									
+					<settings.selection.ordering>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:ordering</label>
+							<config>
+								<type>select</type>
+								<default>desc</default>
+								<items>
+									<numIndex index="1">
+										<numIndex index="0">ASC</numIndex>
+										<numIndex index="1">asc</numIndex>
+									</numIndex>
+									<numIndex index="0">
+										<numIndex index="0">DESC</numIndex>
+										<numIndex index="1">desc</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</settings.selection.ordering>
+					
+					<settings.selection.amount>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:amount</label>
+							<config>
+								<type>input</type>
+								<size>5</size>
+								<eval>int</eval>
+								<min>2</min>
+								<max>150</max>
+								<default>15</default>
+							</config>
+						</TCEforms>
+					</settings.selection.amount>
+					
+					<settings.selection.relation>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:relation</label>
+							<config>
+								<type>select</type>
+								<itemsProcFunc>HDNET\Tagger\Service\FlexformSelection->addReleations</itemsProcFunc>
+								<renderMode>checkbox</renderMode>
+								<multiple>1</multiple>
+								<size>5</size>
+								<minitems>1</minitems>
+								<maxitems>99</maxitems>
+							</config>
+						</TCEforms>
+					</settings.selection.relation>
+					
+					
+				</el>
+			</ROOT>
+		</sDATA>
+		
+	</sheets>
+</T3DataStructure>
