@@ -1,5 +1,6 @@
 <?php
-class TcaService {
+
+class TcaService
+{
 
 }
-?>

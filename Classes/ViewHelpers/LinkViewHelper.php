@@ -4,13 +4,14 @@ namespace HDNET\Tagger\ViewHelpers;
 
 use HDNET\Tagger\Utility\TaggerRegister;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 
-class LinkViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+class LinkViewHelper extends AbstractViewHelper
 {
 
     /**
      * @param string $tableName
-     * @param int    $foreignUid
+     * @param int $foreignUid
      *
      * @return string
      */

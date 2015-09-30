@@ -11,7 +11,7 @@ class TaggerRegister
 
     /**
      * @param string $table
-     * @param array  $typoLinkConfiguration
+     * @param array $typoLinkConfiguration
      */
     static public function registerTagsFor($table, array $typoLinkConfiguration = [])
     {
@@ -36,5 +36,3 @@ class TaggerRegister
         return self::$register;
     }
 }
-
-?>

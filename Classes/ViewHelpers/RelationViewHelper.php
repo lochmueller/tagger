@@ -1,10 +1,17 @@
 <?php
+/**
+ *
+ */
 
 namespace HDNET\Tagger\ViewHelpers;
 
 use HDNET\Tagger\Domain\Model\Tag;
+use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 
-class RelationViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+/**
+ * RelationViewHelper
+ */
+class RelationViewHelper extends AbstractViewHelper
 {
 
     /**

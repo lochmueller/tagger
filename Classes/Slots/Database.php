@@ -48,7 +48,7 @@ class Database
      * @signalClass \TYPO3\CMS\Extensionmanager\Utility\InstallUtility
      * @signalName tablesDefinitionIsBeingBuilt
      *
-     * @param array  $sqlString
+     * @param array $sqlString
      * @param string $extensionKey
      *
      * @return array
@@ -57,10 +57,8 @@ class Database
     {
         $sqlString[] = $this->getDatabaseString();
         return [
-            'sqlString'    => $sqlString,
+            'sqlString' => $sqlString,
             'extensionKey' => $extensionKey
         ];
     }
 }
-
-?>

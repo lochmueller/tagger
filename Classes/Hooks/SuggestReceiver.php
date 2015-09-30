@@ -32,23 +32,24 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 /**
  * Class SuggestReceiver
  */
-class SuggestReceiver extends SuggestWizardDefaultReceiver {
+class SuggestReceiver extends SuggestWizardDefaultReceiver
+{
 
-	/**
-	 *
-	 * @param array $params
-	 * @param integer $recursionCounter
-	 * @return mixed 
-	 */
-	public function queryTable(&$params, $recursionCounter = 0) {
-		$uid = GeneralUtility::_GP('uid');
-		$pageId = GeneralUtility::_GP('pid');
+    /**
+     *
+     * @param array $params
+     * @param integer $recursionCounter
+     * @return mixed
+     */
+    public function queryTable(&$params, $recursionCounter = 0)
+    {
+        $uid = GeneralUtility::_GP('uid');
 
-		$records = parent::queryTable($params, $recursionCounter);
+        $records = parent::queryTable($params, $recursionCounter);
 
-		if (count($records) === 0) {
-			$text = htmlspecialchars($params['value']);
-			$javaScriptCode = '
+        if (count($records) === 0) {
+            $text = htmlspecialchars($params['value']);
+            $javaScriptCode = '
 var value=\'' . $text . '\';
 
 Ext.Ajax.request({
@@ -65,34 +66,33 @@ Ext.Ajax.request({
 });
 ';
 
-			$javaScriptCode = trim(str_replace('"', '\'', $javaScriptCode));
-			$link = implode(' ', explode(chr(10), $javaScriptCode));
+            $javaScriptCode = trim(str_replace('"', '\'', $javaScriptCode));
+            $link = implode(' ', explode(chr(10), $javaScriptCode));
 
-			$records['tx_tagger_domain_model_tag_' . strlen($text)] = [
-				'text' => '<div onclick="' . $link . '">
+            $records['tx_tagger_domain_model_tag_' . strlen($text)] = [
+                'text' => '<div onclick="' . $link . '">
                             <span class="suggest-path">
                                 <a>Kein Tage gefunden. Klicken zum erzeugen</a>
                             </span></div>',
-				'table' => 'tx_tagger_domain_model_tag',
-				'class' => 'suggest-noresults',
-				'style' => 'background-color:#E9F1FE !important;background-image:url(' . $this->getDummyIconPath() . ');',
-			];
-			/// sprintf($GLOBALS['LANG']->sL('LLL:EXT:news/Resources/Private/Language/locallang_be.xml:tag_suggest'), $text)
-		}
+                'table' => 'tx_tagger_domain_model_tag',
+                'class' => 'suggest-noresults',
+                'style' => 'background-color:#E9F1FE !important;background-image:url(' . $this->getDummyIconPath() . ');',
+            ];
+            /// sprintf($GLOBALS['LANG']->sL('LLL:EXT:news/Resources/Private/Language/locallang_be.xml:tag_suggest'), $text)
+        }
 
-		return $records;
-	}
+        return $records;
+    }
 
-	/**
-	 * Get the icon of this database
-	 * 
-	 * @return string 
-	 */
-	private function getDummyIconPath() {
-		$icon = IconUtility::getIcon('tx_tagger_domain_model_tag');
-		return  IconUtility::skinImg('', $icon, '', 1);
-	}
+    /**
+     * Get the icon of this database
+     *
+     * @return string
+     */
+    private function getDummyIconPath()
+    {
+        $icon = IconUtility::getSpriteIconForRecord('tx_tagger_domain_model_tag', []);
+        return IconUtility::skinImg('', $icon, '', 1);
+    }
 
 }
-?>
-
