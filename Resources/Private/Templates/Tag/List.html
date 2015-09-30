@@ -1,9 +1,13 @@
-{namespace hdnet=HDNET\Tagger\ViewHelpers}
+{namespace t=HDNET\Tagger\ViewHelpers}
 <div class="list">
 	<ul>
 		<f:for each="{tags}" as="tag">
-			<li><strong>{tag.title}</strong> - {tag-slug} - {tag.valuation}</li>
+			<li><strong>{tag.title}</strong> - {tag-slug} - {tag.valuation}
+				<f:for each="{t:relation(tag: tag)}" as="item">
+					<f:debug>{item}</f:debug>
+					<t:link tablename="{item.tableName}" foreignUid="{item.foreignUid}">Link Text </t:link>
+				</f:for>
+			</li>
 		</f:for>
 	</ul>
 </div>
-<hdnet:tagLink></hdnet:tagLink>

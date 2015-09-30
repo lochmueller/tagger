@@ -1,3 +1,3 @@
 <?php
-\HDNET\Tagger\Utility\TaggerRegister::registerTagsFor(['pages', 'pagelink']);
+\HDNET\Tagger\Utility\TaggerRegister::registerTagsFor('pages', ['parameter' => '###UID###']);
 ?>

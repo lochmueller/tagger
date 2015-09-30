@@ -33,7 +33,8 @@ class Database
     protected function getDatabaseString()
     {
         $sql = [];
-        foreach (TaggerRegister::getRegister() as $table) {
+        foreach (TaggerRegister::getRegister() as $configuration) {
+            $table = $configuration['tableName'];
             $sql[] = 'CREATE TABLE ' . $table . ' (
 			tagger tinytext
 			);';

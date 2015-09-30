@@ -19,7 +19,8 @@ class TcaManipulation implements \TYPO3\CMS\Core\Database\TableConfigurationPost
     function processData()
     {
         $register = \HDNET\Tagger\Utility\TaggerRegister::getRegister();
-        foreach ($register as $table) {
+        foreach ($register as $configuration) {
+            $table = $configuration['tableName'];
             //DebuggerUtility::var_dump($GLOBALS['TCA'][$table]);
             $GLOBALS['TCA'][$table]['columns']['tagger'] = [
                 'exclude' => 1,
