@@ -11,13 +11,13 @@ class LinkViewHelper extends AbstractViewHelper
 
     /**
      * @param string $tableName
-     * @param int $foreignUid
+     * @param int    $foreignUid
      *
      * @return string
      */
     public function render($tableName, $foreignUid)
     {
-        $typoLinkConfiguration = $this->getTypoLinkConfiguration($tableName);
+        $typoLinkConfiguration = $this->getTypoLinkConfiguration($tableName, $foreignUid);
         DebuggerUtility::var_dump($typoLinkConfiguration);
         // DebuggerUtility::var_dump($tag);
         // TaggerRegister::getRegister() ....
@@ -32,13 +32,25 @@ class LinkViewHelper extends AbstractViewHelper
      * @return array
      * @throws \Exception
      */
-    protected function getTypoLinkConfiguration($tableName)
+    protected function getTypoLinkConfiguration($tableName, $uid)
     {
-        foreach (TaggerRegister::getRegister() as $configuration) {
-            if ($configuration['tableName'] === $tableName) {
-                return $configuration['typoLinkConfiguration'];
-            }
+        $register = TaggerRegister::getRegisterForTableName($tableName);
+        if ($register === null) {
+            throw new \Exception('Invalid table name in tagger registry: ' . $tableName);
         }
-        throw new \Exception('Invalid table name: ' . $tableName);
+
+        $baseConfiguration = $register['typoLinkConfiguration'];
+        $markers = [
+            '###TABLENAME###' => $tableName,
+            '###UID###'       => $uid,
+        ];
+
+        // @todo:
+        // call the callback, if it is_callable
+        // replace the marker
+
+        // @todo replace markers
+
+        return $baseConfiguration;
     }
 }
