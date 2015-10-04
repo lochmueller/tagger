@@ -5,16 +5,17 @@
  * @author  Tim Lochmüller
  */
 
-namespace HDNET\TaggerPageContent;
-
-use HDNET\Tagger\LinkBuilderCallbackInterface;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-
 /**
  * @todo General class information
  *
  */
-class LinkBuilder implements LinkBuilderCallbackInterface
+
+namespace HDNET\Tagger;
+
+
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+
+class ContentLink implements LinkBuilderCallbackInterface
 {
 
     /**
