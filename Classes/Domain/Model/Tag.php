@@ -29,6 +29,8 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
  * Class Tag
+ *
+ * @db
  */
 class Tag extends AbstractEntity
 {
@@ -143,6 +145,7 @@ class Tag extends AbstractEntity
 
     /**
      * Get the real valuation for the tag cloud generator
+     *
      * @return integer
      */
     public function getValuationSize()
