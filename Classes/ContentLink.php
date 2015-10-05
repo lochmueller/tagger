@@ -1,20 +1,17 @@
 <?php
 /**
- * @todo    General file information
+ * Content Link preparation
  *
  * @author  Tim Lochmüller
  */
 
-/**
- * @todo General class information
- *
- */
-
 namespace HDNET\Tagger;
-
 
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
+/**
+ * Prepare the content Link
+ */
 class ContentLink implements LinkBuilderCallbackInterface
 {
 
@@ -30,8 +27,9 @@ class ContentLink implements LinkBuilderCallbackInterface
     {
 
         // @todo define the target link for content elements in the right way
-        DebuggerUtility::var_dump($configuration);
-        DebuggerUtility::var_dump($markers);
+        #DebuggerUtility::var_dump($configuration, 'CONTENT');
+        #DebuggerUtility::var_dump($markers);
+        #die();
         // Addapt here
     }
 

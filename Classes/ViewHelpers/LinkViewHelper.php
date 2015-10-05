@@ -2,8 +2,9 @@
 
 namespace HDNET\Tagger\ViewHelpers;
 
+use HDNET\Tagger\LinkBuilderCallbackInterface;
 use HDNET\Tagger\Utility\TaggerRegister;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 class LinkViewHelper extends AbstractViewHelper
@@ -18,12 +19,8 @@ class LinkViewHelper extends AbstractViewHelper
     public function render($tableName, $foreignUid)
     {
         $typoLinkConfiguration = $this->getTypoLinkConfiguration($tableName, $foreignUid);
-        DebuggerUtility::var_dump($typoLinkConfiguration);
-        // DebuggerUtility::var_dump($tag);
-        // TaggerRegister::getRegister() ....
-        // typoLinkConfiguration
-        // $this->renderChildren()
-        return 'hallo' . $tableName . ':' . $foreignUid;
+        $cObject = $this->objectManager->get('TYPO3\\CMS\\Frontend\\ContentObject\\ContentObjectRenderer');
+        return $cObject->typoLink($this->renderChildren(), $typoLinkConfiguration);
     }
 
     /**
@@ -39,18 +36,36 @@ class LinkViewHelper extends AbstractViewHelper
             throw new \Exception('Invalid table name in tagger registry: ' . $tableName);
         }
 
-        $baseConfiguration = $register['typoLinkConfiguration'];
+        $baseConfiguration = (array)$register['typoLinkConfiguration'];
         $markers = [
             '###TABLENAME###' => $tableName,
             '###UID###'       => $uid,
         ];
+        
+        if ($register['callbackClass'] && class_exists($register['callbackClass'])) {
+            /** @var LinkBuilderCallbackInterface $callback */
+            $callback = GeneralUtility::makeInstance($register['callbackClass']);
+            $callback->prepareLinkBuilding($tableName, $uid, $baseConfiguration, $markers);
+        }
 
-        // @todo:
-        // call the callback, if it is_callable
-        // replace the marker
+        return $this->replaceInArray($baseConfiguration, $markers);
+    }
 
-        // @todo replace markers
-
-        return $baseConfiguration;
+    /**
+     * @param array $array
+     * @param array $markers
+     *
+     * @return array
+     */
+    protected function replaceInArray(array $array, array $markers)
+    {
+        foreach ($array as $key => $value) {
+            if (is_array($value)) {
+                $array[$key] = $this->replaceInArray($value, $markers);
+            } else {
+                $array[$key] = str_replace(array_keys($markers), $markers, $value);
+            }
+        }
+        return $array;
     }
 }

@@ -19,14 +19,10 @@ class TaggerRegister
     static public function registerTagsFor($table, array $typoLinkConfiguration = [], $callbackClass = false)
     {
         if (is_string($table)) {
-            $callback = false;
-            if ($callbackClass) {
-                $callback = [$callbackClass, 'prepareLinkBuilding'];
-            }
             self::registerTags([
                 'tableName'             => $table,
                 'typoLinkConfiguration' => $typoLinkConfiguration,
-                'callback'              => $callback
+                'callbackClass'         => $callbackClass
             ]);
         }
     }
