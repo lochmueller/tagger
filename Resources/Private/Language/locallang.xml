@@ -6,6 +6,7 @@
 	</meta>
 	<data type="array">
 		<languageKey index="default" type="array">
+			<label index="tags"><![CDATA[Tags]]></label>
 			<label index="tx_tagger_domain_model_tag">Tag</label>
 			<label index="tx_tagger_domain_model_tag.title">Title</label>
 			<label index="tx_tagger_domain_model_tag.slug">Slug</label>

@@ -1,34 +1,40 @@
 <?php
 /**
- * @todo    General file information
+ * Add TCA settings
  *
  * @author  Tim Lochmüller
  */
 
 namespace HDNET\Tagger\Hooks;
 
+use HDNET\Autoloader\Utility\TranslateUtility;
 use HDNET\Tagger\Service\IntegrationService;
+use HDNET\Tagger\Utility\TaggerRegister;
 use TYPO3\CMS\Core\Database\TableConfigurationPostProcessingHookInterface;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 /**
- * @todo General class information
+ * Add TCA settings
+ *
  * @hook TYPO3_CONF_VARS|SC_OPTIONS|GLOBAL|extTablesInclusion-PostProcessing
  */
 class TcaManipulation implements TableConfigurationPostProcessingHookInterface
 {
 
+    /**
+     * Add the needed TCA configuration
+     */
     function processData()
     {
-        $register = \HDNET\Tagger\Utility\TaggerRegister::getRegister();
+        $register = TaggerRegister::getRegister();
         foreach ($register as $configuration) {
             $table = $configuration['tableName'];
-            //DebuggerUtility::var_dump($GLOBALS['TCA'][$table]);
             $GLOBALS['TCA'][$table]['columns']['tagger'] = [
                 'exclude' => 1,
-                'label' => 'tagger',
-                'config' => IntegrationService::getTagFieldConfiguration($table)
+                'label'   => TranslateUtility::getLllOrHelpMessage('tags', 'tagger'),
+                'config'  => IntegrationService::getTagFieldConfiguration($table)
             ];
-            $GLOBALS['TCA'][$table]['types']['1']['showitem'] .= ',tagger';
+            ExtensionManagementUtility::addToAllTCAtypes($table, 'tagger');
         }
     }
 }
