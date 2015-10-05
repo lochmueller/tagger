@@ -11,7 +11,6 @@ use TYPO3\CMS\Core\TypoScript\Parser\TypoScriptParser;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
  * Class TagController
@@ -27,6 +26,7 @@ class TagController extends ActionController
 
     /**
      * Render the textcloud
+     *
      * @return void
      */
     public function textcloudAction()
@@ -37,6 +37,7 @@ class TagController extends ActionController
 
     /**
      * Render a simple list
+     *
      * @return void
      */
     public function listAction()
@@ -59,7 +60,8 @@ class TagController extends ActionController
         // Get the tags
         $tags = $this->tagRepository->findByConfiguration($this->settings['selection']['relation'],
             $this->settings['selection']['sorting'], $this->settings['selection']['ordering'],
-            $this->settings['selection']['amount'])->toArray();
+            $this->settings['selection']['amount'])
+            ->toArray();
 
         // Data preperation (link)
         foreach ($tags as $tag) {
@@ -81,8 +83,7 @@ class TagController extends ActionController
                 shuffle($tags);
                 break;
             default:
-                throw new \Exception('No valid preperation->sorting: ' . $this->settings['preperation']['sorting'],
-                    241724618941);
+                throw new \Exception('No valid preperation->sorting: ' . $this->settings['preperation']['sorting'], 241724618941);
                 break;
         }
 
@@ -96,6 +97,7 @@ class TagController extends ActionController
 
     /**
      * @param Tag $tag
+     *
      * @return string
      */
     protected function getLink(Tag $tag)
@@ -106,7 +108,7 @@ class TagController extends ActionController
         $parser->parse($configuration);
 
         $configuration = [
-            'value' => '',
+            'value'     => '',
             'typolink.' => $parser->setup
         ];
         $configuration['typolink.']['returnLast'] = 'url';
@@ -119,9 +121,10 @@ class TagController extends ActionController
     /**
      * Parses data through typoscript.
      *
-     * @param array $data
-     * @param array $configuration
+     * @param array  $data
+     * @param array  $configuration
      * @param string $type
+     *
      * @return string
      */
     protected function renderSingle(array $data, array $configuration, $type = 'TEXT')

@@ -4,8 +4,7 @@
 		<f:for each="{tags}" as="tag">
 			<li><strong>{tag.title}</strong> - {tag-slug} - {tag.valuation}
 				<f:for each="{t:relation(tag: tag)}" as="item">
-					<f:debug>{item}</f:debug>
-					<t:link tableName="{item.tableName}" foreignUid="{item.foreignUid}">Link Text </t:link>
+					<t:link tableName="{item.tableName}" foreignUid="{item.foreignUid}">{item.tableName}:{item.foreignUid}</t:link>
 				</f:for>
 			</li>
 		</f:for>
