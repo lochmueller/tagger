@@ -7,7 +7,7 @@
 
 namespace HDNET\Tagger;
 
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use TYPO3\CMS\Backend\Utility\BackendUtility;
 
 /**
  * Prepare the content Link
@@ -25,12 +25,8 @@ class ContentLink implements LinkBuilderCallbackInterface
      */
     public function prepareLinkBuilding($table, $uid, &$configuration, &$markers)
     {
-
-        // @todo define the target link for content elements in the right way
-        #DebuggerUtility::var_dump($configuration, 'CONTENT');
-        #DebuggerUtility::var_dump($markers);
-        #die();
-        // Addapt here
+        $row = BackendUtility::getRecord($table, $uid);
+        $markers['###PAGE_UID###'] = $row['pid'] . '#' . $uid;
     }
 
 }
