@@ -37,26 +37,31 @@ class Tag extends AbstractEntity
 
     /**
      * @var string
+     * @db
      */
     protected $title;
 
     /**
      * @var string
+     * @db
      */
     protected $slug;
 
     /**
      * @var string
+     * @db
      */
     protected $link;
 
     /**
      * @var float
+     * @db
      */
     protected $valuation;
 
     /**
      * @var string
+     * @db
      */
     protected $content;
 
