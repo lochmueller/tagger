@@ -45,7 +45,7 @@ class IntegrationService
                 'suggest' => [
                     'type' => 'suggest',
                     'default' => [
-                        'receiverClass' => 'Tx_Tagger_Hooks_SuggestReceiver'
+                        'receiverClass' => \HDNET\Tagger\Hooks\SuggestReceiver::class
                     ],
                 ],
             ],
