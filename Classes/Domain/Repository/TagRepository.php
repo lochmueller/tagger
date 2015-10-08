@@ -1,33 +1,18 @@
 <?php
 
-/* * *************************************************************
- *  Copyright notice
- *
- *  (c) 2012 Tim Lochmüller
- *  
- *  All rights reserved
- *
- *  This script is part of the TYPO3 project. The TYPO3 project is
- *  free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  The GNU General Public License can be found at
- *  http://www.gnu.org/copyleft/gpl.html.
- *
- *  This script is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  This copyright notice MUST APPEAR in all copies of the script!
- * ************************************************************* */
+/**
+ * Tag repository
+ */
+
 namespace HDNET\Tagger\Domain\Repository;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Persistence\Generic\Query;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
+/**
+ * TagRepository
+ */
 class TagRepository extends Repository
 {
 
@@ -50,7 +35,7 @@ class TagRepository extends Repository
      * @param string $sorting
      * @param string $ordering
      * @param integer $amount
-     * @return \TYPO3\CMS\Extbase\Persistence\QueryInterface|array
+     * @return \TYPO3\CMS\Extbase\Persistence\QueryResultInterface|array
      * @todo move valudation to a pseudo value
      */
     public function findByConfiguration($relations, $sorting, $ordering, $amount)
@@ -77,6 +62,7 @@ class TagRepository extends Repository
             $relations[$key] = '"' . $value . '"';
         }
 
+        /** @var Query $query */
         $query = $this->createQuery();
         $plainQuery = "SELECT tx_tagger_domain_model_tag.*, (tx_tagger_domain_model_tag.valuation*COUNT( slug )) as valuation, COUNT( slug ) as content
 					FROM 

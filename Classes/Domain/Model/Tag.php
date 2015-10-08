@@ -1,34 +1,15 @@
 <?php
 
-/* * *************************************************************
- *  Copyright notice
- *
- *  (c) 2012 Tim Lochmüller
- *  
- *  All rights reserved
- *
- *  This script is part of the TYPO3 project. The TYPO3 project is
- *  free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  The GNU General Public License can be found at
- *  http://www.gnu.org/copyleft/gpl.html.
- *
- *  This script is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  This copyright notice MUST APPEAR in all copies of the script!
- * ************************************************************* */
+/**
+ * Tag
+ */
+
 namespace HDNET\Tagger\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
- * Class Tag
+ * Tag
  *
  * @db
  */
@@ -36,36 +17,48 @@ class Tag extends AbstractEntity
 {
 
     /**
+     * Title
+     *
      * @var string
      * @db
      */
     protected $title;
 
     /**
+     * Slug
+     *
      * @var string
      * @db
      */
     protected $slug;
 
     /**
+     * Link
+     *
      * @var string
      * @db
      */
     protected $link;
 
     /**
+     * Valuation
+     *
      * @var float
      * @db
      */
     protected $valuation;
 
     /**
+     * Content
+     *
      * @var string
      * @db
      */
     protected $content;
 
     /**
+     * Get title
+     *
      * @return string
      */
     public function getTitle()
@@ -74,6 +67,8 @@ class Tag extends AbstractEntity
     }
 
     /**
+     * Get slug
+     *
      * @return string
      */
     public function getSlug()
@@ -82,6 +77,8 @@ class Tag extends AbstractEntity
     }
 
     /**
+     * Get link
+     *
      * @return string
      */
     public function getLink()
@@ -93,6 +90,8 @@ class Tag extends AbstractEntity
     }
 
     /**
+     * Get valuation
+     *
      * @return float
      */
     public function getValuation()
@@ -101,6 +100,8 @@ class Tag extends AbstractEntity
     }
 
     /**
+     * Get content
+     *
      * @return string
      */
     public function getContent()
@@ -109,6 +110,8 @@ class Tag extends AbstractEntity
     }
 
     /**
+     * Set title
+     *
      * @param string $title
      */
     public function setTitle($title)
@@ -117,6 +120,8 @@ class Tag extends AbstractEntity
     }
 
     /**
+     * Set slug
+     *
      * @param string $slug
      */
     public function setSlug($slug)
@@ -125,6 +130,8 @@ class Tag extends AbstractEntity
     }
 
     /**
+     * Set link
+     *
      * @param string $link
      */
     public function setLink($link)
@@ -133,6 +140,8 @@ class Tag extends AbstractEntity
     }
 
     /**
+     * Set valuation
+     *
      * @param float $valuation
      */
     public function setValuation($valuation)
@@ -141,6 +150,8 @@ class Tag extends AbstractEntity
     }
 
     /**
+     * Set content
+     *
      * @param string $content
      */
     public function setContent($content)

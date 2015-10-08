@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * Tag controller
  */
 
 namespace HDNET\Tagger\Controller;
@@ -19,6 +19,8 @@ class TagController extends ActionController
 {
 
     /**
+     * Tag repository
+     *
      * @var \HDNET\Tagger\Domain\Repository\TagRepository
      * @inject
      */
@@ -65,6 +67,7 @@ class TagController extends ActionController
 
         // Data preperation (link)
         foreach ($tags as $tag) {
+            /** @var $tag Tag */
             if (trim($tag->getLink()) == '') {
                 $tag->setLink($this->getLink($tag));
             }
@@ -96,6 +99,8 @@ class TagController extends ActionController
     }
 
     /**
+     * Get link
+     *
      * @param Tag $tag
      *
      * @return string

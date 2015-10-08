@@ -1,10 +1,14 @@
 <?php
+/**
+ * Database
+ */
+
 namespace HDNET\Tagger\Slots;
 
 use HDNET\Tagger\Utility\TaggerRegister;
 
 /**
- * Class Database
+ * Database
  */
 class Database
 {
@@ -26,23 +30,6 @@ class Database
     }
 
     /**
-     * Get  the calendarize string for the registered tables
-     *
-     * @return string
-     */
-    protected function getDatabaseString()
-    {
-        $sql = [];
-        foreach (TaggerRegister::getRegister() as $configuration) {
-            $table = $configuration['tableName'];
-            $sql[] = 'CREATE TABLE ' . $table . ' (
-			tagger tinytext
-			);';
-        }
-        return implode(LF, $sql);
-    }
-
-    /**
      * Add the smart object SQL string the the signal below
      *
      * @signalClass \TYPO3\CMS\Extensionmanager\Utility\InstallUtility
@@ -60,5 +47,22 @@ class Database
             'sqlString' => $sqlString,
             'extensionKey' => $extensionKey
         ];
+    }
+
+    /**
+     * Get the tagger string for the registered tables
+     *
+     * @return string
+     */
+    protected function getDatabaseString()
+    {
+        $sql = [];
+        foreach (TaggerRegister::getRegister() as $configuration) {
+            $table = $configuration['tableName'];
+            $sql[] = 'CREATE TABLE ' . $table . ' (
+			tagger tinytext
+			);';
+        }
+        return implode(LF, $sql);
     }
 }

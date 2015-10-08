@@ -1,4 +1,9 @@
 <?php
+
+/**
+ *
+ */
+
 namespace HDNET\Tagger\Utility;
 
 /**
@@ -7,6 +12,11 @@ namespace HDNET\Tagger\Utility;
 class TaggerRegister
 {
 
+    /**
+     * Register
+     *
+     * @var array
+     */
     static protected $register = [];
 
     /**
@@ -28,6 +38,8 @@ class TaggerRegister
     }
 
     /**
+     * Register Tags configuration
+     *
      * @param array $configuration
      */
     static public function registerTags(array $configuration)
@@ -36,6 +48,8 @@ class TaggerRegister
     }
 
     /**
+     * Get the register
+     *
      * @return array
      */
     static public function getRegister()
@@ -44,6 +58,9 @@ class TaggerRegister
     }
 
     /**
+     * Get the register for the given table name
+     *
+     * @param string $tableName
      * @return array|NULL
      */
     static public function getRegisterForTableName($tableName)

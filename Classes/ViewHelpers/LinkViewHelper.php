@@ -1,16 +1,26 @@
 <?php
 
+/**
+ * Link view helper
+ */
+
 namespace HDNET\Tagger\ViewHelpers;
 
 use HDNET\Tagger\LinkBuilderCallbackInterface;
 use HDNET\Tagger\Utility\TaggerRegister;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
+/**
+ * Link view helper
+ */
 class LinkViewHelper extends AbstractViewHelper
 {
 
     /**
+     * Render the view Helper
+     *
      * @param string $tableName
      * @param int    $foreignUid
      *
@@ -19,13 +29,16 @@ class LinkViewHelper extends AbstractViewHelper
     public function render($tableName, $foreignUid)
     {
         $typoLinkConfiguration = $this->getTypoLinkConfiguration($tableName, $foreignUid);
-        $cObject = $this->objectManager->get('TYPO3\\CMS\\Frontend\\ContentObject\\ContentObjectRenderer');
+        $cObject = $this->objectManager->get(ContentObjectRenderer::class);
         return $cObject->typoLink($this->renderChildren(), $typoLinkConfiguration);
     }
 
     /**
+     * Get typolink configuration
+     *
      * @param string $tableName
      *
+     * @param int $uid
      * @return array
      * @throws \Exception
      */
@@ -52,6 +65,8 @@ class LinkViewHelper extends AbstractViewHelper
     }
 
     /**
+     * Replace in array
+     *
      * @param array $array
      * @param array $markers
      *

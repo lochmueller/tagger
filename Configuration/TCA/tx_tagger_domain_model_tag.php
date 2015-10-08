@@ -1,10 +1,6 @@
 <?php
 
-/**
- * Base TCA generation for the model HDNET\\Tagger\\Domain\\Model\\Tag
- */
-
-$base = \HDNET\Autoloader\Utility\ModelUtility::getTcaInformation('HDNET\\Tagger\\Domain\\Model\\Tag');
+$base = \HDNET\Autoloader\Utility\ModelUtility::getTcaInformation(\HDNET\Tagger\Domain\Model\Tag::class);
 
 $custom = array(
     'columns' => [

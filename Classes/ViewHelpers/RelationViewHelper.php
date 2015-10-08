@@ -1,6 +1,6 @@
 <?php
 /**
- *
+ * Relation view helper
  */
 
 namespace HDNET\Tagger\ViewHelpers;
@@ -15,15 +15,19 @@ class RelationViewHelper extends AbstractViewHelper
 {
 
     /**
+     * Relation service
+     *
      * @var \HDNET\Tagger\Service\RelationService
      * @inject
      */
     protected $relationService;
 
     /**
+     * Return an array with the usage of the given tag
+     *
      * @param Tag $tag
      *
-     * @return string
+     * @return array
      */
     public function render(Tag $tag)
     {
