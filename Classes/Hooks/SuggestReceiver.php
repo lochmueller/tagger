@@ -76,5 +76,4 @@ Ext.Ajax.request({
         $icon = IconUtility::getSpriteIconForRecord('tx_tagger_domain_model_tag', []);
         return IconUtility::skinImg('', $icon, '', 1);
     }
-
 }

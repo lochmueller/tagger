@@ -60,9 +60,12 @@ class TagController extends ActionController
     protected function getTags()
     {
         // Get the tags
-        $tags = $this->tagRepository->findByConfiguration($this->settings['selection']['relation'],
-            $this->settings['selection']['sorting'], $this->settings['selection']['ordering'],
-            $this->settings['selection']['amount'])
+        $tags = $this->tagRepository->findByConfiguration(
+            $this->settings['selection']['relation'],
+            $this->settings['selection']['sorting'],
+            $this->settings['selection']['ordering'],
+            $this->settings['selection']['amount']
+        )
             ->toArray();
 
         // Data preperation (link)
@@ -139,4 +142,3 @@ class TagController extends ActionController
         return $cObj->cObjGetSingle($type, $configuration);
     }
 }
-

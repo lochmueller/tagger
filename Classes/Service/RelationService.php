@@ -27,8 +27,11 @@ class RelationService implements SingletonInterface
     public function getUsageByTag(Tag $tag)
     {
         return $this->getDatabaseConnection()
-            ->exec_SELECTgetRows('tablenames AS tableName,uid_foreign AS foreignUid', 'tx_tagger_tag_mm',
-                'uid_local=' . $tag->getUid());
+            ->exec_SELECTgetRows(
+                'tablenames AS tableName,uid_foreign AS foreignUid',
+                'tx_tagger_tag_mm',
+                'uid_local=' . $tag->getUid()
+            );
     }
 
     /**
@@ -52,5 +55,4 @@ class RelationService implements SingletonInterface
     {
         return $GLOBALS['TYPO3_DB'];
     }
-
 }

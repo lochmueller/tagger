@@ -56,11 +56,13 @@ class ProcessDatamap
 
         // Strip the rest...:
         $processedTitle = preg_replace('/[^a-zA-Z0-9\\' . $space . ']/', '', $processedTitle); // strip the rest
-        $processedTitle = preg_replace('/\\' . $space . '+/', $space,
-            $processedTitle); // Convert multiple 'spaces' to a single one
+        $processedTitle = preg_replace(
+            '/\\' . $space . '+/',
+            $space,
+            $processedTitle
+        ); // Convert multiple 'spaces' to a single one
         $processedTitle = trim($processedTitle, $space);
 
         return $processedTitle;
     }
-
 }

@@ -168,5 +168,4 @@ class Tag extends AbstractEntity
     {
         return rand(8, 30);
     }
-
 }

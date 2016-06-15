@@ -25,8 +25,13 @@ class FlexformSelection
     {
         /** @var DatabaseConnection $databaseConnection */
         $databaseConnection = $GLOBALS['TYPO3_DB'];
-        $rows = $databaseConnection->exec_SELECTgetRows('tablenames', 'tx_tagger_tag_mm', '1=1', 'tablenames',
-            'tablenames DESC');
+        $rows = $databaseConnection->exec_SELECTgetRows(
+            'tablenames',
+            'tx_tagger_tag_mm',
+            '1=1',
+            'tablenames',
+            'tablenames DESC'
+        );
         foreach ($rows as $row) {
             $table = $row['tablenames'];
             $icon = IconUtility::getSpriteIconForRecord($table, []);
@@ -36,5 +41,4 @@ class FlexformSelection
             $config['items'][] = [$table, $table, $icon];
         }
     }
-
 }

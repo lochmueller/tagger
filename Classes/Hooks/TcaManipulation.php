@@ -24,7 +24,7 @@ class TcaManipulation implements TableConfigurationPostProcessingHookInterface
     /**
      * Add the needed TCA configuration
      */
-    function processData()
+    public function processData()
     {
         $register = TaggerRegister::getRegister();
         foreach ($register as $configuration) {

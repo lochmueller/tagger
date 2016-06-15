@@ -115,8 +115,10 @@ class IntegrationService
     {
         /** @var DatabaseConnection $databaseConnection */
         $databaseConnection = $GLOBALS['TYPO3_DB'];
-        return $databaseConnection->exec_SELECTgetRows('uid_foreign as uid, tablenames', 'tx_tagger_tag_mm',
-            'uid_local=' . $uid);
+        return $databaseConnection->exec_SELECTgetRows(
+            'uid_foreign as uid, tablenames',
+            'tx_tagger_tag_mm',
+            'uid_local=' . $uid
+        );
     }
-
 }

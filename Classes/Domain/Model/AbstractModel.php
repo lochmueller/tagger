@@ -30,5 +30,4 @@ class AbstractModel extends AbstractEntity
         }
         return $vars;
     }
-
 }

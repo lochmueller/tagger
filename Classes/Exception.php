@@ -24,5 +24,4 @@ class Exception extends \Exception
         $message = 'Tagger Extension Errror: ' . $message . ' --- More Information in the Tager Wiki Code (<a href="http://forge.typo3.org/projects/extension-tagger/wiki/Errors#' . $code . '">More information</a>) or TYPO3 Wiki ';
         parent::__construct($message, $code, $previous);
     }
-
 }

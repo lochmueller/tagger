@@ -26,7 +26,7 @@ class TaggerRegister
      * @param array       $typoLinkConfiguration
      * @param string|bool $callbackClass
      */
-    static public function registerTagsFor($table, array $typoLinkConfiguration = [], $callbackClass = false)
+    public static function registerTagsFor($table, array $typoLinkConfiguration = [], $callbackClass = false)
     {
         if (is_string($table)) {
             self::registerTags([
@@ -42,7 +42,7 @@ class TaggerRegister
      *
      * @param array $configuration
      */
-    static public function registerTags(array $configuration)
+    public static function registerTags(array $configuration)
     {
         self::$register[] = $configuration;
     }
@@ -52,7 +52,7 @@ class TaggerRegister
      *
      * @return array
      */
-    static public function getRegister()
+    public static function getRegister()
     {
         return self::$register;
     }
@@ -63,7 +63,7 @@ class TaggerRegister
      * @param string $tableName
      * @return array|NULL
      */
-    static public function getRegisterForTableName($tableName)
+    public static function getRegisterForTableName($tableName)
     {
         foreach (self::getRegister() as $configuration) {
             if ($configuration['tableName'] === $tableName) {

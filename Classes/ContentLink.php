@@ -28,5 +28,4 @@ class ContentLink implements LinkBuilderCallbackInterface
         $row = BackendUtility::getRecord($table, $uid);
         $markers['###PAGE_UID###'] = $row['pid'] . '#' . $uid;
     }
-
 }

@@ -75,7 +75,8 @@ class SuggestReceiverCall
         /** @var DatabaseConnection $databaseConnection */
         $databaseConnection = $GLOBALS['TYPO3_DB'];
         $record = $databaseConnection->exec_SELECTgetSingleRow(
-            '*', 'tx_tagger_domain_model_tag',
+            '*',
+            'tx_tagger_domain_model_tag',
             'deleted=0 AND title=' . $databaseConnection->fullQuoteStr($request['item'], 'tx_tagger_domain_model_tag')
         );
         if (isset($record['uid'])) {
@@ -90,5 +91,4 @@ class SuggestReceiverCall
 
         return $tagUid;
     }
-
 }
