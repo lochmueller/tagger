@@ -24,8 +24,8 @@ $EM_CONF['tagger'] = [
     'constraints' => [
         'depends' => [
             'php' => '5.5.0-0.0.0',
-            'typo3' => '6.2.0-7.99.99',
-            'autoloader' => '1.7.0-0.0.0',
+            'typo3' => '6.2.0-8.1.99',
+            'autoloader' => '2.0.0-0.0.0',
         ],
     ],
 ];
