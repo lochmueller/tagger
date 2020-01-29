@@ -1,6 +1,5 @@
 {
   "name": "lochmueller/tagger",
-  "version": "0.2.0",
   "type": "typo3-cms-extension",
   "description": "Complex but easy to use tag system with extbase / fluid base and different output possibilities",
   "autoload": {
@@ -10,8 +9,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "HDNET\\Tagger\\Tests\\": "Tests",
-      "TYPO3\\CMS\\Core\\Tests\\": ".Build/vendor/typo3/cms/typo3/sysext/core/Tests/"
+      "HDNET\\Tagger\\Tests\\": "Tests"
     }
   },
   "keywords": [
@@ -29,15 +27,13 @@
   ],
   "require": {
     "php": ">=5.4.0",
-    "typo3/cms-core": "~6.2.0||~7.6.0||~8.1.0||dev-master",
-    "typo3/cms": "^7.6.0"
+    "typo3/cms-core": "~7.6.0||~8.1.0"
   },
   "replace": {
-    "tagger": "self.version",
     "typo3-ter/tagger": "self.version"
   },
   "homepage": "https://github.com/lochmueller/tagger",
-  "license": "GPL-2.0+",
+  "license": "GPL-2.0-or-later",
   "support": {
     "issues": "https://github.com/lochmueller/tagger/issues"
   },
